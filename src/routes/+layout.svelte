@@ -1,6 +1,19 @@
 <script>
 	import { onMount } from "svelte";
 
+	// document.addEventListener('mousemove', (e) => {
+	// 	const line = document.querySelector('svg');
+	// 	line.style.transform = `translate(${e.clientX}px, ${e.clientY + -110}px)`;
+	// });
+
+	let mouseX = 0;
+  	let mouseY = 0;
+
+  function handleMouseMove(event) {
+    mouseX = event.clientX;
+    mouseY = event.clientY + window.scrollY;
+  }
+
    let visible = true
     function ToggleMenu() {
         visible = !visible
@@ -59,7 +72,17 @@
 {/if}
 <button on:click={ToggleMenu}>SHOW MENU</button>
 
+<!-- cursor animatie -->
+<svelte:window on:mousemove={handleMouseMove} />
+
+
+
 <main>
+	<svg style="transform: translate({ mouseX  }px, { mouseY - 190 }px)" width="500" height="200" xmlns="http://www.w3.org/2000/svg">
+		<path d="M10 80 Q 95 10 180 80 T 350 80" stroke="#629267" stroke-width="6" fill="transparent" />
+		<path d="M20 90 Q 95 20 180 90 T 360 90" stroke="#DC9813" stroke-width="6" fill="transparent" />
+		<path d="M30 100 Q 95 30 180 100 T 370 100" stroke="#A8371B" stroke-width="6" fill="transparent" />
+	</svg>
 	<slot />
 </main>
 
@@ -107,6 +130,26 @@
 		color: var(--textColor);
 		position: relative;
 	}
+
+/* Cursor animatie */
+path {
+  stroke-dasharray: 150 5;
+  stroke-dashoffset: 1000;
+  animation: dash 15s linear alternate infinite;
+}
+svg{
+	position: absolute;
+	z-index: 1000;
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 
 	ul,
 	li {
