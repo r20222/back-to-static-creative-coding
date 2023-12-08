@@ -78,7 +78,7 @@
 
 
 <main>
-	<svg style="transform: translate({ mouseX  }px, { mouseY - 190 }px)" width="500" height="200" xmlns="http://www.w3.org/2000/svg">
+	<svg style="transform: translate({ mouseX  }px, { mouseY - 190 }px)" width="500" height="200">
 		<path d="M10 80 Q 95 10 180 80 T 350 80" stroke="#629267" stroke-width="6" fill="transparent" />
 		<path d="M20 90 Q 95 20 180 90 T 360 90" stroke="#DC9813" stroke-width="6" fill="transparent" />
 		<path d="M30 100 Q 95 30 180 100 T 370 100" stroke="#A8371B" stroke-width="6" fill="transparent" />
@@ -149,7 +149,13 @@ svg{
     stroke-dashoffset: 0;
   }
 }
-
+@media (prefers-reduced-motion) {
+	path {
+		stroke-dasharray: 150 5;
+		stroke-dashoffset: 1000;
+		animation: none;
+	}
+}
 
 	ul,
 	li {
