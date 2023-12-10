@@ -264,7 +264,7 @@
 	}
 
 	/* Breakpoints medium screen */
-	@media (min-width: 992px) {
+	@media (min-width: 62em) {
 		/* Nav */
 		header {
 			position: fixed;
@@ -318,7 +318,7 @@
 	}
 
 	/* Breakpoints large screen */
-	@media (min-width: 1200px) {
+	@media (min-width: 75em) {
 		.nav-link {
 			display: flex;
 			justify-content: left;
