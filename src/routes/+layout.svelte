@@ -1,24 +1,24 @@
 <script>
-	import { onMount } from "svelte";
-
-	// document.addEventListener('mousemove', (e) => {
-	// 	const line = document.querySelector('svg');
-	// 	line.style.transform = `translate(${e.clientX}px, ${e.clientY + -110}px)`;
-	// });
-
 	let mouseX = 0;
   	let mouseY = 0;
 
-  function handleMouseMove(event) {
-    mouseX = event.clientX;
-    mouseY = event.clientY + window.scrollY;
-  }
+	function handleMouseMove(event) {
+		mouseX = event.clientX;
+		mouseY = event.clientY + window.scrollY;
 
-   let visible = true
+		// mouseXroot.style.setProperty(500);
+		document.documentElement.style.setProperty('--mouseX', `${mouseX}px`);
+		document.documentElement.style.setProperty('--mouseY', `${mouseY - 190}px`);
+
+	}
+	
+   	let visible = true
     function ToggleMenu() {
         visible = !visible
     }
+	
 </script>
+
 {#if visible}
 <header class="Header" >
 	<nav>
@@ -78,10 +78,10 @@
 
 
 <main>
-	<svg style="transform: translate({ mouseX  }px, { mouseY - 190 }px)" width="500" height="200">
-		<path d="M10 80 Q 95 10 180 80 T 350 80" stroke="#629267" stroke-width="6" fill="transparent" />
-		<path d="M20 90 Q 95 20 180 90 T 360 90" stroke="#DC9813" stroke-width="6" fill="transparent" />
-		<path d="M30 100 Q 95 30 180 100 T 370 100" stroke="#A8371B" stroke-width="6" fill="transparent" />
+	<svg width="500" height="200">
+		<path d="M10 80 Q 95 10 180 80 T 350 80"  />
+		<path d="M20 90 Q 95 20 180 90 T 360 90"  />
+		<path d="M30 100 Q 95 30 180 100 T 370 100"  />
 	</svg>
 	<slot />
 </main>
@@ -91,9 +91,9 @@
 <style>
     /* Proxima font */
     @font-face {
-    font-family: 'Proxima';
-    src: url("/ProximaNovaFont.otf") format("opentype") weight("normal");
-    src: url("/Proxima-Nova-Bold.otf") format("opentype") weight("bold");
+		font-family: 'Proxima';
+		src: url("/ProximaNovaFont.otf") format("opentype") weight("normal");
+		src: url("/Proxima-Nova-Bold.otf") format("opentype") weight("bold");
     }
 
 	/* Base */
@@ -118,6 +118,8 @@
 		--color: rgb(212, 212, 212);
 		--textSize: 1.2rem;
 		--iconSize: 2rem;
+		--mouseX: 0px;
+		--mouseY: 0px;
 	}
 
 	:global(html) {
@@ -131,32 +133,53 @@
 		position: relative;
 	}
 
-/* Cursor animatie */
-path {
-  stroke-dasharray: 150 5;
-  stroke-dashoffset: 1000;
-  animation: dash 15s linear alternate infinite;
-}
-svg{
-	position: absolute;
-	z-index: 1000;
-}
-@keyframes dash {
-  from {
-    stroke-dashoffset: 1000;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@media (prefers-reduced-motion) {
+	/* Cursor animatie */
 	path {
-		stroke-dasharray: 150 5;
-		stroke-dashoffset: 1000;
-		animation: none;
+	stroke-dasharray: 150 5;
+	stroke-dashoffset: 1000;
+	animation: dash 15s linear alternate infinite;
 	}
-}
+	path:nth-child(1){
+		stroke:#629267 ;
+		stroke-width: 6 ;
+		fill:transparent;
+	}
+	path:nth-child(2){
+		stroke:#DC9813; 
+		stroke-width:6;
+		fill:transparent;
+	}
+	path:nth-child(3){
+		stroke:#A8371B;
+		stroke-width:6;
+		fill:transparent;
+	}
+	svg{
+		position: absolute;
+		z-index: 1000;
+		transform: translate(var(--mouseX), var(--mouseY));
+	}
+	@keyframes dash {
+	from {
+		stroke-dashoffset: 1000;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+	}
+	@media (prefers-reduced-motion) {
+		path {
+			stroke-dasharray: 150 5;
+			stroke-dashoffset: 1000;
+			animation: none;
+		}
+	}
 
+
+
+
+
+	/* list */
 	ul,
 	li {
 		list-style: none;
