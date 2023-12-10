@@ -13,6 +13,7 @@
 	<title>Dashboard The Ocean Cleanup</title>
 </svelte:head>
 
+
 <section class="main">
 	<div class="container2">
 		<!-- Blue line -->

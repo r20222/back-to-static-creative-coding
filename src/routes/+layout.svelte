@@ -1,19 +1,19 @@
 <script>
+	import CursorAnimation from '../lib/components/cursorAnimation.svelte';
 
-	// Variabelen waaraan ik de x en y waarde wil gaan meegeven van de cursor op het scherm
-	let mouseX = 0;
-  	let mouseY = 0;
+	// // Variabelen waaraan ik de x en y waarde wil gaan meegeven van de cursor op het scherm
+	// let mouseX = 0;
+  	// let mouseY = 0;
 
-	// Deze functie houd actueel de x en y waarde van de muis op het scherm bij
-	function handleMouseMove(event) {
-		mouseX = event.clientX;
-		mouseY = event.clientY + window.scrollY;
+	// // Deze functie houd actueel de x en y waarde van de muis op het scherm bij
+	// function handleMouseMove(event) {
+	// 	mouseX = event.clientX;
+	// 	mouseY = event.clientY + window.scrollY;
 
-		// De onderstaande code werkt de CSS custom properties van mouseX en mouseY bij
-		document.documentElement.style.setProperty('--mouseX', `${mouseX}px`);
-		document.documentElement.style.setProperty('--mouseY', `${mouseY - 190}px`);
-
-	}
+	// 	// De onderstaande code werkt de CSS custom properties van mouseX en mouseY bij
+	// 	document.documentElement.style.setProperty('--mouseX', `${mouseX}px`);
+	// 	document.documentElement.style.setProperty('--mouseY', `${mouseY - 190}px`);
+	// }
 	
    	let visible = true
     function ToggleMenu() {
@@ -74,18 +74,8 @@
 </header>
 {/if}
 <button on:click={ToggleMenu}>SHOW MENU</button>
-
-<!-- dit zet de functie handleMouseMove in gang wanneer de muis beweegt -->
-<svelte:window on:mousemove={handleMouseMove} />
-
-
-
 <main>
-	<svg width="500" height="200">
-		<path d="M10 80 Q 95 10 180 80 T 350 80"  />
-		<path d="M20 90 Q 95 20 180 90 T 360 90"  />
-		<path d="M30 100 Q 95 30 180 100 T 370 100"  />
-	</svg>
+	<CursorAnimation/>
 	<slot />
 </main>
 
@@ -136,7 +126,7 @@
 		position: relative;
 	}
 
-	/* Cursor animatie */
+	/* Cursor animatie
 	path {
 	stroke-dasharray: 150 5;
 	stroke-dashoffset: 1000;
@@ -176,7 +166,7 @@
 			stroke-dashoffset: 1000;
 			animation: none;
 		}
-	}
+	} */
 
 
 
@@ -207,10 +197,6 @@
 		background-color: var(--whiteColor);
 		box-shadow: var(--boxShadow) 0px 0px 8px;
 		z-index: 100;
-	}
-
-	.header-off {
-		display: none;
 	}
   
 	nav {
