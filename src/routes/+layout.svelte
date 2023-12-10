@@ -1,12 +1,15 @@
 <script>
+
+	// Variabelen waaraan ik de x en y waarde wil gaan meegeven van de cursor op het scherm
 	let mouseX = 0;
   	let mouseY = 0;
 
+	// Deze functie houd actueel de x en y waarde van de muis op het scherm bij
 	function handleMouseMove(event) {
 		mouseX = event.clientX;
 		mouseY = event.clientY + window.scrollY;
 
-		// mouseXroot.style.setProperty(500);
+		// De onderstaande code werkt de CSS custom properties van mouseX en mouseY bij
 		document.documentElement.style.setProperty('--mouseX', `${mouseX}px`);
 		document.documentElement.style.setProperty('--mouseY', `${mouseY - 190}px`);
 
@@ -72,7 +75,7 @@
 {/if}
 <button on:click={ToggleMenu}>SHOW MENU</button>
 
-<!-- cursor animatie -->
+<!-- dit zet de functie handleMouseMove in gang wanneer de muis beweegt -->
 <svelte:window on:mousemove={handleMouseMove} />
 
 
