@@ -6,6 +6,8 @@
 	import ChartContinents from '../lib/components/chartContinents.svelte';
 	import ChartRiverOcean from '../lib/components/chartRiverOcean.svelte';
 	import SystemStatus from '../lib/components/system-status.svelte';
+	import HippyShuffle from '../lib/components/hippyShuffle.svelte';
+
 	export let data;
 </script>
 
@@ -67,73 +69,10 @@
 
 		<!-- More: table more information links -->
 		<section class="panel more">
-			<h2>More about</h2>
-			<table class="table-more">
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							Our river technology
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
-
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							The economic impact
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
-
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							Plastic sources
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
-
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							Donate
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
-
-				<span>
-					<tr class="more-row">
-						<td class="more-icon">
-							<a href="/" class="more-link">
-								<!-- add icon -->
-								Sign up to newsletter
-							</a>
-						</td>
-						<td class="arrow">
-							<!-- add icon -->
-						</td>
-					</tr>
-				</span>
-			</table>
+			<HippyShuffle/>
 		</section>
-	</div>
-</section>
+	</section>
+
 <!-- End main section -->
 
 <!-- Scroll to top button -->
@@ -244,6 +183,7 @@
 		background-color: var(--whiteColor);
 		box-shadow: var(--boxShadow) 0px 0px 8px;
 		transition: 0.2s;
+		position: relative;
 	}
 
 	/* Grid areas */
@@ -282,6 +222,11 @@
 		grid-area: share;
 	}
 
+	/* voor hippy shuffle */
+	section.more{
+		padding: 0;
+	}
+	
 	.more {
 		grid-area: more;
 	}

@@ -74,6 +74,8 @@
 </header>
 {/if}
 <button on:click={ToggleMenu}>SHOW MENU</button>
+
+
 <main>
 	<CursorAnimation/>
 	<slot />
