@@ -4,9 +4,20 @@
 <section class="square">
     <!-- deur -->
     <section class="door">
-        <section class="pillars"></section>
-        <section class="pillars"></section>
-        <section class="pillars"></section>
+        <section class="pillars">
+            <section class="cirkle"></section>
+            <section class="cover-up"></section>
+        </section>
+
+        <section class="pillars">
+            <section class="cirkle"></section>
+            <section class="cover-up"></section>
+        </section>
+
+        <section class="pillars">
+            <section class="cirkle"></section>
+            <section class="cover-up"></section>
+        </section>
     </section>
     <section class="floor"></section>
 </section>
@@ -43,7 +54,7 @@
         height:25rem;
         background-color: black;
         border-radius: 30rem 30rem 0rem 0rem;
-        box-shadow: oklch(69.66% 0.003 286.32) 0rem 0rem 0rem .8rem;
+        /* box-shadow: oklch(69.66% 0.003 286.32) 0rem 0rem 0rem .8rem; */
 
         /* margin:auto; */
         position: relative;
@@ -58,4 +69,19 @@
             right:14rem;
         }
     }
+    .cirkle{
+        width: 12rem;
+        height:7rem;
+        background-color: black;
+        box-shadow: oklch(70% 0.003 286.32) 0rem 0rem 0rem .8rem;
+        border-radius: 100px 100px 0% 0%;
+    }
+    .cover-up{
+        width: 12rem;
+        height:10rem;
+        background-color: black;
+        position: relative;
+        top:0rem;
+    }
+   
 </style>
