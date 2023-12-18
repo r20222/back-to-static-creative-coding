@@ -19,7 +19,16 @@
             <section class="cover-up"></section>
         </section>
     </section>
-    <section class="floor"></section>
+
+    <section class="floor">
+        <section class="shadow-of-pillars">
+            <section class="pillar-shadow"></section>
+            <section class="pillar-shadow"></section>
+            <section class="pillar-shadow"></section>
+
+
+        </section>
+    </section>
 </section>
 
 <style>
@@ -82,6 +91,42 @@
         background-color: black;
         position: relative;
         top:0rem;
+    }
+
+
+    /* floor */
+    .shadow-of-pillars{
+        width:20rem;
+        height:35rem;
+        margin:auto;
+        background-color: transparent;
+        display: flex;
+        gap: 12rem;
+        overflow: hidden;
+        /* transform: perspective(1rem) rotateX(1deg); */
+        /* position: relative; */
+        /* left: 4.5rem */
+        /* animation: pillars 5s linear infinite; */
+        /* box-shadow: .1rem 2rem 3rem white; */
+    }
+    .pillar-shadow{
+        min-width:2rem;
+        height:100%;
+        background-color: white;
+        /* box-shadow: 1rem 1rem 10rem 2rem white; */
+        filter: blur(2rem);
+        position: relative;
+        right:2rem; 
+        animation: pillars-shadow 5s linear infinite;
+
+    }
+    @keyframes pillars-shadow{
+        0%{
+            right:2rem;
+        }
+        100%{
+            right:16rem;
+        }
     }
    
 </style>
