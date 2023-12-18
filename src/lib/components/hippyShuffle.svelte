@@ -1,4 +1,5 @@
 <script>
+    // array met de verschillende teksten en img
     let articles = [
     {
         text: 'Stop plastic waste tips!',
@@ -19,6 +20,7 @@
     ]
     let active = 0
 
+    // functies van de buttons
     function next() {
         // controleer of de lengte van de articles niet al 3 is, want in dat geval is het volgende getal 0
         if(active != articles.length - 1){
@@ -27,7 +29,6 @@
             active = 0
         }
     }
-
     function back() {
         // als active niet 0 is kan je er 1 vanaf trekken, als het wel 0 is dan ga je naar laatste article, nr 3
         if (active != 0) {
@@ -36,9 +37,6 @@
             active = articles.length - 1;
         }
     }
-
-
-   
 </script>
 
 
@@ -47,9 +45,10 @@
 <section class="hippy-cards">
     <div>
         <!-- on:click zet de functies back & next in werking -->
-        <button on:click={back}>links</button>
-        <button on:click={next}>rechts</button>
+        <button on:click={back}>back</button>
+        <button on:click={next}>next</button>
     </div>
+    <!-- circle animation -->
     <svg viewBox="0 0 500 500">
         <path id="curve" fill="transparent" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
         <text width="500">
@@ -58,7 +57,6 @@
           </textPath>
         </text>
       </svg>
-    
     <!-- deze foreach loop gaat de articles langs uit de js, i staat voor index, hierdoor krijgt de article die active is de class show -->
     {#each articles as article, i}
     <article class="z-index" class:show={i==active}>

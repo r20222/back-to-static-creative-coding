@@ -1,0 +1,61 @@
+<h1>Mysterious baroque minimalist atmosphere</h1>
+
+<!-- vierkant met inhoud -->
+<section class="square">
+    <!-- deur -->
+    <section class="door">
+        <section class="pillars"></section>
+        <section class="pillars"></section>
+        <section class="pillars"></section>
+    </section>
+    <section class="floor"></section>
+</section>
+
+<style>
+    .square{
+        width:50vw;
+        height:80vh;
+        background-image: linear-gradient(oklch(49.97% 0 0), oklch(75.25% 0 0),  oklch(97.87% 0 6.99));
+        overflow: hidden;
+    }
+    .door{
+        width:20rem;
+        height:25rem;
+        background-color: oklch(77.44% 0.003 165.05);
+        box-shadow: oklch(69.66% 0.003 286.32) 0rem 0rem 0rem .8rem;
+        border-radius: 30rem 30rem 0rem 0rem;
+        margin:auto;
+        position: relative;
+        top:2rem;
+        overflow: hidden;
+        display: flex;
+        gap: 2rem;
+    }
+    .floor{
+        width:100%;
+        height: 100%;
+        background-image: linear-gradient(oklch(29.72% 0 0), oklch(59.99% 0 0),oklch(29.72% 0 0));
+        position: relative;
+        top:2rem;
+    }
+    .pillars{
+        min-width:12rem;
+        height:25rem;
+        background-color: black;
+        border-radius: 30rem 30rem 0rem 0rem;
+        box-shadow: oklch(69.66% 0.003 286.32) 0rem 0rem 0rem .8rem;
+
+        /* margin:auto; */
+        position: relative;
+        animation: pillars 5s linear infinite;
+        top:5rem;
+    }
+    @keyframes pillars{
+        0%{
+            right:0rem;
+        }
+        100%{
+            right:14rem;
+        }
+    }
+</style>
